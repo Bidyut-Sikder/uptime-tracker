@@ -6,7 +6,15 @@
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "scripts": {
+    "dev": "bun --hot index.ts"
+  },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "db": "*",
+    "express": "^4.21.2"
   }
 }
