@@ -1,6 +1,5 @@
 # Turborepo starter
-
-This Turborepo starter is maintained by the Turborepo core team.
+TurboRepo is a build system for monorepos.
 
 ## Using this example
 
