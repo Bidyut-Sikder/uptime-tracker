@@ -1,13 +1,13 @@
 {
-  "name": "validator",
+  "name": "common",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
-  "scripts": {
-    "dev": "bun --hot index.ts"
+  "exports":{
+    "./types": "./index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"

@@ -19,31 +19,30 @@ model User {
 }
 
 model Website {
-  id      String          @id @default(uuid())
-  url     String
-  userId  String
-  ticks WebsiteTick[]
-
+  id     String        @id @default(uuid())
+  url    String
+  userId String
+  ticks  WebsiteTick[]
 }
 
 model Validator {
-  id        String          @id @default(uuid())
-  publicKey String
-  location  String
-  ip       String
-  ticks WebsiteTick[]
-
+  id             String        @id @default(uuid())
+  publicKey      String
+  location       String
+  ip             String
+  pendingPayouts Int           @default(0)
+  ticks          WebsiteTick[]
 }
 
 model WebsiteTick {
   id          String    @id @default(uuid())
   websiteId   String
-  website     Website  @relation(fields: [websiteId], references: [id])
+  website     Website   @relation(fields: [websiteId], references: [id])
   validatorId String
   validator   Validator @relation(fields: [validatorId], references: [id])
-  createdAt DateTime
-  status    Status 
-  latency   Float
+  createdAt   DateTime
+  status      Status
+  latency     Float
 }
 
 enum Status {
