@@ -1,9 +1,12 @@
 import express from "express";
 import { authMiddleware } from "./middlewares/middleware";
 import { prismaClient } from "db/client";
+import cors from "cors";
+import "dotenv/config";
 
 const app = express();
 app.use(express.json());
+app.use(cors({}));
 // app.use(express.urlencoded({ extended: true }));
 
 app.post("/api/v1/website", authMiddleware, async (req, res) => {
@@ -12,7 +15,7 @@ app.post("/api/v1/website", authMiddleware, async (req, res) => {
       url: req.body.url,
       userId: req.userId!,
     },
-  });
+  }); 
 
   res.json({ id: data.id });
 });
@@ -31,7 +34,7 @@ app.get("/api/v1/website/status", authMiddleware, async (req, res) => {
 app.get("/api/v1/websites", authMiddleware, async (req, res) => {
   const websites = await prismaClient.website.findMany({
     where: { userId: req.userId },
-    include:{ticks:true}
+    include: { ticks: true },
   });
   res.json({ websites });
 });
@@ -48,6 +51,6 @@ app.delete("/api/v1/website", authMiddleware, async (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(8000, () => {
+  console.log("Server is running on port 8000");
 });
