@@ -80,6 +80,9 @@
     },
     "apps/validator": {
       "name": "validator",
+      "dependencies": {
+        "dotenv": "^16.4.7",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },

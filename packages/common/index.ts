@@ -4,6 +4,7 @@ export interface SignupIncomingMessage {
   publicKey: string;
   signedMessage: string;
   callbackId: string;
+  location:string
 }
 
 export interface ValidateIncomingMessage {
@@ -13,7 +14,7 @@ export interface ValidateIncomingMessage {
   signedMessage: string;
   status: "Good" | "Bad";
   latency: number;
-  websiteId: string;
+  // websiteId: string;
   validatorId: string;
 }
 
@@ -28,7 +29,7 @@ export interface ValidateOutgoingMessage {
 
   url: string;
   callbackId: string;
-  websiteId: string;
+  // websiteId: string;
 }
 
 export type IncomingMessage =

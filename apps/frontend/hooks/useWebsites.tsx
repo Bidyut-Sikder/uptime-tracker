@@ -40,7 +40,7 @@ export function useWebsites() {
       () => {
         refreshWebsites();
       },
-      1000 * 60 * 3
+      1000 * 60 * 1
     );
 
     return () => clearInterval(interval);

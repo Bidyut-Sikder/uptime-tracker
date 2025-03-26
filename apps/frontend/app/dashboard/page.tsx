@@ -32,11 +32,12 @@ function App() {
       // Aggregate ticks into 3-minute windows (10 windows total)
       const windows: UptimeStatus[] = [];
 
-      for (let i = 0; i < 10; i++) {
-        const windowStart = new Date(Date.now() - (i + 1) * 3 * 60 * 1000); //3 minutes ago
+      for (let i = 0; i < 15; i++) {
+        const windowStart = new Date(Date.now() - (i + 1) * 3 * 60 * 1000);//2 minutes ago window starts
+        const windowEnd = new Date(Date.now() - i * 3 * 60 * 1000);
+        
 
-        const windowEnd = new Date(Date.now() - i * 3 * 60 * 1000); //current time
-
+ 
         const windowTicks = recentTicks.filter((tick) => {
           //checks how many ticks are available in the current 30 minutes
           const tickTime = new Date(tick.createdAt);
